@@ -35,7 +35,7 @@ function Todo(props) {
     const [activeStep, setActiveStep] = useState(0);
     const [skipped, setSkipped] = useState(new Set());
 
-    const className = 'todo';
+    let className = 'todo';
 
     if (props.todo.completed) {
         className += ' todo-completed'
@@ -75,9 +75,9 @@ function Todo(props) {
     }
 
     return (
-        <ExpansionPanel className='todo_panel'>
+        <ExpansionPanel className={className + 'todo_panel'}>
             <ExpansionPanelSummary expandIcon={<Icon>expand_more</Icon>}>
-                <div className={className}>
+                <div>
                     <h2 >{props.todo.title}</h2>
                 </div>
             </ExpansionPanelSummary>
@@ -112,6 +112,8 @@ function Todo(props) {
                                     All steps completed - you're finished</Typography>
                                 <Button onClick={handleReset} className={classes.button}>
                                     Reset</Button>
+                                <Button onClick={() => props.toggleTaskComplete(props.todo)} className={classes.button}>
+                                    Clear </Button>
                             </div>
                         ) : (
                                 <div>

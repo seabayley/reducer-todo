@@ -23,7 +23,7 @@ header {
 }
 
 .todo-completed {
-    text-decoration: line-through;
+    background-color: green;
 }
 
 .task_dialog {

@@ -18,6 +18,11 @@ function TodoForm(props) {
                 onClick={toggleTaskDialogOpen}>
                 <Icon>add</Icon>New Task
             </Button>
+            <Button variant='contained'
+                color='secondary'
+                onClick={props.handleClearCompleted}>
+                <Icon>delete</Icon>Clear Task
+            </Button>
             <TaskDialog open={openDialog} onClose={toggleTaskDialogOpen} saveTask={props.handleCreateTask} />
         </div>
     );
